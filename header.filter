@@ -1,0 +1,88 @@
+#--------------------------
+# Gold
+#--------------------------
+
+Show
+    StackSize >= 500
+    BaseType == "Gold"
+        SetTextColor 255 255 255
+        SetBorderColor 255 255 255
+        PlayEffect Orange Temp
+
+Show
+    BaseType == "Gold"
+    StackSize < 30
+    AreaLevel > 40
+        SetFontSize 1
+        SetTextColor 180 180 180 0
+        SetBorderColor 0 0 0 0
+        SetBackgroundColor 0 0 0 0  
+
+Show
+    BaseType == "Gold"
+    StackSize < 20
+    AreaLevel > 30
+        SetFontSize 1
+        SetTextColor 180 180 180 0
+        SetBorderColor 0 0 0 0
+        SetBackgroundColor 0 0 0 0  
+
+Show
+    BaseType == "Gold"
+        SetTextColor 180 180 180
+        SetBorderColor 0 0 0 255
+        SetBackgroundColor 0 0 0 180
+
+#============== Sockets and Quality for salvaging ===========
+Show
+    Sockets  > 0
+        SetFontSize 30
+        SetTextColor 180 0 0
+
+Show
+    Quality  > 0
+        SetFontSize 30
+        SetTextColor 180 180 0        
+
+#============= Hide low level items =====================
+Hide
+    AreaLevel >= 60
+    DropLevel < 50
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 55
+    DropLevel < 45
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 50
+    DropLevel < 40
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 45
+    DropLevel < 35
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 40
+    DropLevel < 30
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 35
+    DropLevel < 25
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+Hide
+    AreaLevel >= 30
+    DropLevel < 20
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
