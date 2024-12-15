@@ -42,7 +42,7 @@ Show
 Show
     Quality  > 0
         SetFontSize 30
-        SetTextColor 180 180 0        
+        SetTextColor 180 60 180        
 
 #============= Hide low level items =====================
 Hide
