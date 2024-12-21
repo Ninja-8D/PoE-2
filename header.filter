@@ -33,18 +33,36 @@ Show
         SetBorderColor 0 0 0 255
         SetBackgroundColor 0 0 0 180
 
+#============== Make Wisdom Scrolls invisible after lvl 60  ===========
+Show
+    BaseType == "Wisdom Scroll"
+    StackSize < 2
+    AreaLevel >= 60
+        SetFontSize 1
+        SetTextColor 180 180 180 0
+        SetBorderColor 0 0 0 255
+        SetBackgroundColor 0 0 0 0  
+
 #============== Sockets and Quality for salvaging ===========
 Show
     Sockets  > 0
         SetFontSize 30
         SetTextColor 180 0 0
+        Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
 
 Show
     Quality  > 0
         SetFontSize 30
-        SetTextColor 180 60 180        
+        SetTextColor 180 180 0
+        Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
 
 #============= Hide low level items =====================
+Hide
+    AreaLevel >= 65
+    DropLevel < 55
+    Rarity < Rare
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
 Hide
     AreaLevel >= 60
     DropLevel < 50
