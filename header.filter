@@ -33,15 +33,18 @@ Show
         SetBorderColor 0 0 0 255
         SetBackgroundColor 0 0 0 180
 
-#============== Make Wisdom Scrolls invisible after lvl 60  ===========
+#============== Make single Wisdom Scrolls invisible after lvl 60  ===========
 Show
-    BaseType == "Wisdom Scroll"
+    Class "Currency"
+    BaseType "Wisdom"
     StackSize < 2
     AreaLevel >= 60
         SetFontSize 1
         SetTextColor 180 180 180 0
-        SetBorderColor 0 0 0 255
+        SetBorderColor 0 0 0 0
         SetBackgroundColor 0 0 0 0  
+
+
 
 #============== Sockets and Quality for salvaging ===========
 Show
@@ -104,3 +107,4 @@ Hide
     DropLevel < 20
     Rarity < Rare
     Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
