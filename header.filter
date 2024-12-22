@@ -49,15 +49,45 @@ Show
 #============== Sockets and Quality for salvaging ===========
 Show
     Sockets  > 0
+    AreaLevel >= 60
+    Height = 3
+    Width = 1
         SetFontSize 30
         SetTextColor 180 0 0
         Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
 
 Show
-    Quality  > 0
+    Sockets  > 0
+    AreaLevel < 60
         SetFontSize 30
-        SetTextColor 180 180 0
+        SetTextColor 180 0 0
         Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+
+
+#============== Quality for salvaging ===========
+Show
+    Quality  > 0
+    AreaLevel <= 70
+    Height = 3
+    Width = 1
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+        SetFontSize 30
+        SetTextColor 180 100 90
+        
+Show
+    Quality  > 0
+    AreaLevel <= 70
+    Height = 2
+    Width = 2
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+        SetFontSize 30
+        SetTextColor 180 100 90
+        
+#============= Hide Normal flasks after level 60 =====================
+Hide
+    AreaLevel >= 60
+    Rarity < Magic
+    Class "Flask" 
 
 #============= Hide low level items =====================
 Hide
@@ -107,4 +137,3 @@ Hide
     DropLevel < 20
     Rarity < Rare
     Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
-
