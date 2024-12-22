@@ -52,16 +52,16 @@ Show
     AreaLevel >= 60
     Height = 3
     Width = 1
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
         SetFontSize 30
-        SetTextColor 180 0 0
-        Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+        SetTextColor 180 0 0        
 
 Show
     Sockets  > 0
     AreaLevel < 60
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
         SetFontSize 30
-        SetTextColor 180 0 0
-        Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+        SetTextColor 180 0 0        
 
 
 #============== Quality for salvaging ===========
