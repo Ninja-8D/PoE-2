@@ -46,7 +46,7 @@ Show
 
 
 
-#============== Sockets and Quality for salvaging ===========
+#============== Sockets for salvaging ===========
 Show
     Sockets  > 0
     AreaLevel >= 60
