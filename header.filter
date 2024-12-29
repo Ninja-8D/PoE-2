@@ -1,6 +1,6 @@
-#--------------------------
-# Gold
-#--------------------------
+#############################
+#           Gold            #
+#############################
 
 Show
     StackSize >= 500
@@ -9,7 +9,16 @@ Show
         SetBorderColor 255 255 255
         PlayEffect Orange Temp
 
-Show
+Show  #Make invisible but can still be picked up
+    BaseType == "Gold"
+    StackSize < 40
+    AreaLevel > 60
+        SetFontSize 1
+        SetTextColor 180 180 180 0
+        SetBorderColor 0 0 0 0
+        SetBackgroundColor 0 0 0 0  
+
+Show  #Make invisible but can still be picked up
     BaseType == "Gold"
     StackSize < 30
     AreaLevel > 40
@@ -18,7 +27,7 @@ Show
         SetBorderColor 0 0 0 0
         SetBackgroundColor 0 0 0 0  
 
-Show
+Show #Make invisible but can still be picked up
     BaseType == "Gold"
     StackSize < 20
     AreaLevel > 30
@@ -27,11 +36,16 @@ Show
         SetBorderColor 0 0 0 0
         SetBackgroundColor 0 0 0 0  
 
-Show
+Show #Make invisible but can still be picked up
     BaseType == "Gold"
         SetTextColor 180 180 180
         SetBorderColor 0 0 0 255
         SetBackgroundColor 0 0 0 180
+
+
+#############################
+#      Wisdom Scrolls       #
+#############################
 
 #============== Make single Wisdom Scrolls invisible after lvl 60  ===========
 Show
@@ -45,95 +59,143 @@ Show
         SetBackgroundColor 0 0 0 0  
 
 
+#############################
+#      Sockets              #
+#############################
 
 #============== Sockets for salvaging ===========
 Show
     Sockets  > 0
-    AreaLevel >= 60
+    ItemLevel < 60
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear"
+        SetFontSize 30
+        SetTextColor 180 0 0      
+
+Show  #stop salvaging after level 65
+    Sockets  > 0
+    ItemLevel < 65
     Height = 3
     Width = 1
-    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear"
         SetFontSize 30
-        SetTextColor 180 0 0        
+        SetTextColor 180 0 0
 
-Show
-    Sockets  > 0
-    AreaLevel < 60
-    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
-        SetFontSize 30
-        SetTextColor 180 0 0        
 
+#############################
+#      Quality              #
+#############################
 
 #============== Quality for salvaging ===========
-Show
+Show  #stop after level 60
     Quality  > 0
-    AreaLevel <= 70
+    ItemLevel <= 60
     Height = 3
     Width = 1
-    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear"
         SetFontSize 30
         SetTextColor 180 100 90
         
-Show
+Show  #stop after level 60
     Quality  > 0
-    AreaLevel <= 70
+    ItemLevel <= 60
     Height = 2
     Width = 2
-    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear"
         SetFontSize 30
         SetTextColor 180 100 90
+
+#############################
+#      flasks               #
+#############################
         
-#============= Hide Normal flasks after level 60 =====================
-Hide
-    AreaLevel >= 60
-    Rarity < Magic
-    Class "Flask" 
+#============= Show only Ultimate flasks after level 57.  You can blanket sell flasks then just mass salvage disenchant them to clear tab  =====================
+Show  #Ultimates flasks' lowest ilvl on trade is 57
+    ItemLevel >= 60
+    Rarity = Magic
+    Class "Flask"
+    BaseType "Ultimate"
+        SetFontSize 25
+Hide  #Hide all low level flasks after level 60
+    ItemLevel >= 60
+    Rarity < Unique
+    Class "Flask"
 
-#============= Hide low level items =====================
-Hide
-    AreaLevel >= 65
-    DropLevel < 55
+#############################
+#      Expert               #
+#############################
+
+#============= Reforging Expert tiers =====================
+Show  #Show the expert tier gear for reforge/disenchant
+    ItemLevel >= 62
+    Rarity = Rare
+    BaseType "Expert"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
+        SetFontSize 30
+Show  #Show the expert tier gear for reforge/disenchant
+    ItemLevel >= 62
+    Rarity = Magic
+    BaseType "Expert"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
+        SetFontSize 30
+
+
+Show  #Show rares for disenchant
+    ItemLevel >= 62
+    Rarity = Rare
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
+        SetFontSize 5
+
+Hide  #Start to hide advance items.  Expert tiers overlap with advanced at lvl 62
+    ItemLevel >= 62  
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    BaseType "Advanced"
+    Class "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
+
+#############################
+#      Hide Low Level       #
+#############################
+
+#============= Blanket Hide low level items as you progress =====================
 
 Hide
-    AreaLevel >= 60
+    ItemLevel >= 60
     DropLevel < 50
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 55
+    ItemLevel >= 55
     DropLevel < 45
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 50
+    ItemLevel >= 50
     DropLevel < 40
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 45
+    ItemLevel >= 45
     DropLevel < 35
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 40
+    ItemLevel >= 40
     DropLevel < 30
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 35
+    ItemLevel >= 35
     DropLevel < 25
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
 
 Hide
-    AreaLevel >= 30
+    ItemLevel >= 30
     DropLevel < 20
     Rarity < Rare
-    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre"
+    Class "Flask" "Body" "Helmet" "Boots" "Gloves" "Shields" "Quiver" "Mace" "Staff" "Quarter" "Bow" "Crossbow" "Wand" "Sceptre" "Spear" "Focus"
+
